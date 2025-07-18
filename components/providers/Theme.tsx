@@ -4,6 +4,8 @@ import { ReactNode } from "react";
 
 type Props = { children: ReactNode }
 
+const defaultTheme = createTheme({})
+
 const darkTheme = createTheme({
     palette: {
         mode: 'dark',
@@ -13,6 +15,12 @@ const darkTheme = createTheme({
         secondary: {
             main: '#fff'
         },
+    },
+    breakpoints: {
+        values: {
+            ...defaultTheme.breakpoints.values,
+            sm: 680
+        }
     }
 })
 

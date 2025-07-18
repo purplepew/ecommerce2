@@ -19,7 +19,7 @@ const Navigations = () => {
     }
 
     return (
-        <Stack direction='row' gap={2}>
+        <Stack direction='row' gap={3}>
             <CustomLink title='All' location='/search' />
             <CustomLink title='Shirts' location='/search/shirts' />
             <CustomLink title='Stickers' location='/search/stickers' />

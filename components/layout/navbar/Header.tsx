@@ -4,24 +4,46 @@ import Logo from "./Logo"
 import Navigations from "./Navigations"
 import Searchbar from "./Searchbar"
 import Cart from "./Cart"
+import Menu from "./Menu"
 
 const index = () => {
     const theme = useTheme()
-    const isTight = useMediaQuery(theme.breakpoints.down('md'), {
+    const mediumScreenSize = useMediaQuery(theme.breakpoints.down('md'), {
         defaultMatches: false,
     })
+    const smallScreenSize = useMediaQuery(theme.breakpoints.down('sm'), {
+        defaultMatches: false
+    })
 
-    return (
-        <AppBar>
-            <Toolbar sx={{ justifyContent: 'space-between' }}>
-                <Stack direction='row' alignItems='center' gap={2}>
-                    <Logo isIconOnly={Boolean(isTight)} />
+    let content
+
+    if (smallScreenSize) {
+        content = (
+            <>
+                <Menu />
+                <Logo />
+                <Cart decreaseSize={true} />
+            </>
+        )
+    } else {
+        content = (
+            <>
+                <Stack direction='row' alignItems='center' gap={3}>
+                    <Logo isIconOnly={mediumScreenSize} />
                     <Navigations />
                 </Stack>
 
                 <Searchbar />
 
                 <Cart />
+            </>
+        )
+    }
+
+    return (
+        <AppBar>
+            <Toolbar>
+                {content}
             </Toolbar>
         </AppBar>
     )

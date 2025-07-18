@@ -14,7 +14,7 @@ const Logo = ({ isIconOnly = false }: Props) => {
                 backgroundColor: '#000',
                 border: '.5px solid #8f8f8f',
                 borderRadius: 2,
-                p: .5
+                p: '.2rem .4rem'
             }}
         >
             <Details color='secondary' fontSize={'small'} />
