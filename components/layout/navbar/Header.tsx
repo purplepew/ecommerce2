@@ -1,6 +1,7 @@
 'use client'
-import { AppBar, Toolbar, Typography, useMediaQuery, useTheme } from "@mui/material"
+import { AppBar, Toolbar, Typography, useMediaQuery, useTheme, Link } from "@mui/material"
 import Logo from "./Logo"
+import Navigations from "./Navigations"
 
 const index = () => {
     const theme = useTheme()
@@ -10,8 +11,9 @@ const index = () => {
 
     return (
         <AppBar>
-            <Toolbar>
+            <Toolbar sx={{justifyContent: 'space-around'}}>
                 <Logo isIconOnly={Boolean(isTight)} />
+                <Navigations />
             </Toolbar>
         </AppBar>
     )
