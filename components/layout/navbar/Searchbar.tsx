@@ -8,7 +8,8 @@ const Searchbar = () => {
             sx={{
                 display: 'flex',
                 flexDirection: 'row',
-                alignItems: 'center'
+                alignItems: 'center',
+                margin: '0 auto'
             }}
         >
             <TextField
@@ -18,10 +19,14 @@ const Searchbar = () => {
                     input: {
                         endAdornment: (
                             <InputAdornment position='end'>
-                                <Search fontSize={'small'}/>
+                                <Search fontSize={'small'} />
                             </InputAdornment>
                         )
                     }
+                }}
+                sx={{
+                    transform: 'scale(.8)',
+                    width: '400px'
                 }}
             />
         </Box>
