@@ -2,6 +2,7 @@
 import { AppBar, Toolbar, Typography, useMediaQuery, useTheme, Link } from "@mui/material"
 import Logo from "./Logo"
 import Navigations from "./Navigations"
+import Searchbar from "./Searchbar"
 
 const index = () => {
     const theme = useTheme()
@@ -14,6 +15,7 @@ const index = () => {
             <Toolbar sx={{justifyContent: 'space-around'}}>
                 <Logo isIconOnly={Boolean(isTight)} />
                 <Navigations />
+                <Searchbar />
             </Toolbar>
         </AppBar>
     )
