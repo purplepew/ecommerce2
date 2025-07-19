@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Header from '@/components/layout/navbar/Header'
 import Theme from "@/components/providers/Theme";
 import { Container, CssBaseline } from "@mui/material";
+import Sidebar from '@/components/layout/sidebar/Sidebar';
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,8 +20,9 @@ export default function RootLayout({
       <body>
         <Theme>
           <Header />
-          <Container sx={{backgroundColor: 'primary.main', minHeight: '100vh'}}>
+          <Container sx={{backgroundColor: 'primary.main', minHeight: '100vh'}} maxWidth={false}>
             <CssBaseline />
+            <Sidebar />
             {children}
           </Container>
         </Theme>
