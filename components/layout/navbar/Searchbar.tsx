@@ -4,14 +4,7 @@ import { Search } from '@mui/icons-material'
 
 const Searchbar = () => {
     return (
-        <Box
-            sx={{
-                display: 'flex',
-                flexDirection: 'row',
-                alignItems: 'center',
-                margin: '0 auto'
-            }}
-        >
+        <>
             <TextField
                 placeholder='Search for a product'
                 size='small'
@@ -29,7 +22,7 @@ const Searchbar = () => {
                     width: '400px'
                 }}
             />
-        </Box>
+        </>
     )
 }
 

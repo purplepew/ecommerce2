@@ -1,6 +1,6 @@
 import React from 'react'
 import NextLink from 'next/link'
-import { Link, Stack, Typography } from '@mui/material'
+import { Link, Typography } from '@mui/material'
 
 const Navigations = () => {
 
@@ -10,7 +10,9 @@ const Navigations = () => {
                 <Typography
                     color='secondary'
                     variant='body2'
-                    sx={{ '&:hover': { textDecoration: 'underline', opacity: .7 } }}
+                    sx={{
+                        '&:hover': { textDecoration: 'underline', opacity: .5 },
+                    }}
                 >
                     {title}
                 </Typography>
@@ -19,11 +21,11 @@ const Navigations = () => {
     }
 
     return (
-        <Stack direction='row' gap={3}>
+        <>
             <CustomLink title='All' location='/search' />
             <CustomLink title='Shirts' location='/search/shirts' />
             <CustomLink title='Stickers' location='/search/stickers' />
-        </Stack>
+        </>
     )
 }
 

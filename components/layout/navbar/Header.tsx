@@ -1,5 +1,5 @@
 'use client'
-import { AppBar, Toolbar, Typography, useMediaQuery, useTheme, Link, Stack } from "@mui/material"
+import { AppBar, Toolbar, Typography, useMediaQuery, useTheme, Link, Stack, Box } from "@mui/material"
 import Logo from "./Logo"
 import Navigations from "./Navigations"
 import Searchbar from "./Searchbar"
@@ -21,8 +21,12 @@ const index = () => {
         content = (
             <>
                 <Menu />
+
                 <Logo />
-                <Cart decreaseSize={true} />
+
+                <Box sx={{ marginLeft: 'auto' }}>
+                    <Cart decreaseSize={true} />
+                </Box>
             </>
         )
     } else {
@@ -33,9 +37,20 @@ const index = () => {
                     <Navigations />
                 </Stack>
 
-                <Searchbar />
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        margin: '0 auto'
+                    }}
+                >
+                    <Searchbar />
+                </Box>
 
-                <Cart />
+                <Box sx={{ marginLeft: 'auto' }}>
+                    <Cart />
+                </Box>
             </>
         )
     }
