@@ -56,7 +56,7 @@ const index = () => {
     }
 
     return (
-        <AppBar>
+        <AppBar position='static'>
             <Toolbar>
                 {content}
             </Toolbar>

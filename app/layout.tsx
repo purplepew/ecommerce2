@@ -1,6 +1,8 @@
+import './global.css'
 import type { Metadata } from "next";
 import Header from '@/components/layout/navbar/Header'
 import Theme from "@/components/providers/Theme";
+import { Container, CssBaseline } from "@mui/material";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +19,10 @@ export default function RootLayout({
       <body>
         <Theme>
           <Header />
-          {children}
+          <Container sx={{backgroundColor: 'primary.main', minHeight: '100vh'}}>
+            <CssBaseline />
+            {children}
+          </Container>
         </Theme>
       </body>
     </html>
