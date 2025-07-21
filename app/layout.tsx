@@ -20,10 +20,20 @@ export default function RootLayout({
       <body>
         <Theme>
           <Header />
-          <Container sx={{backgroundColor: 'primary.main', minHeight: '100vh'}} maxWidth={false}>
+          <Container
+            sx={{
+              backgroundColor: 'primary.main',
+              minHeight: '100vh',
+              display: { mobile: 'flex' },
+              paddingTop: 1
+            }}
+            maxWidth={false}
+          >
             <CssBaseline />
+
             <Sidebar />
             {children}
+
           </Container>
         </Theme>
       </body>

@@ -1,17 +1,19 @@
 'use client'
-import { AppBar, Toolbar, Typography, useMediaQuery, useTheme, Link, Stack, Box } from "@mui/material"
+import { AppBar, Toolbar, useMediaQuery, useTheme, Stack, Box } from "@mui/material"
 import Logo from "./Logo"
 import Navigations from "./Navigations"
 import Searchbar from "./Searchbar"
 import Cart from "./Cart"
 import Menu from "./Menu"
 
-const index = () => {
+
+const Header = () => {
     const theme = useTheme()
-    const mediumScreenSize = useMediaQuery(theme.breakpoints.down('md'), {
+
+    const mediumScreenSize = useMediaQuery(theme.breakpoints.down('tablet'), {
         defaultMatches: false,
     })
-    const smallScreenSize = useMediaQuery(theme.breakpoints.down('sm'), {
+    const smallScreenSize = useMediaQuery(theme.breakpoints.down('mobile'), {
         defaultMatches: false
     })
 
@@ -64,4 +66,4 @@ const index = () => {
     )
 }
 
-export default index
+export default Header

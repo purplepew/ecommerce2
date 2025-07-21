@@ -1,10 +1,20 @@
 'use client'
-import { createTheme, ThemeProvider } from "@mui/material";
+import { createTheme, ThemeProvider, useMediaQuery } from "@mui/material";
 import { ReactNode } from "react";
 
 type Props = { children: ReactNode }
 
-const defaultTheme = createTheme({})
+declare module '@mui/material/styles' {
+    interface BreakpointOverrides {
+        xs: false,
+        sm: false,
+        mobile: true,
+        tablet: true,
+        md: true,
+        lg: true,
+        xl: false
+    }
+}
 
 const darkTheme = createTheme({
     palette: {
@@ -18,8 +28,10 @@ const darkTheme = createTheme({
     },
     breakpoints: {
         values: {
-            ...defaultTheme.breakpoints.values,
-            sm: 680
+            mobile: 680,
+            tablet: 800,
+            md: 700,
+            lg: 1024
         }
     }
 })

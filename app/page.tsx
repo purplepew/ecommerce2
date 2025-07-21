@@ -1,9 +1,9 @@
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 export default function Home() {
   return (
-    <Typography>
+    <Box sx={{display:'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100vh'}}>
       Page
-    </Typography>
+    </Box>
   );
 }
