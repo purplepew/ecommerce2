@@ -4,6 +4,9 @@ import Header from '@/components/layout/navbar/Header'
 import Theme from "@/components/providers/Theme";
 import { Container, CssBaseline } from "@mui/material";
 import Sidebar from '@/components/layout/sidebar/Sidebar';
+import StoreProvider from '@/components/providers/StoreProvider';
+import PrerenderProductCategory from '@/components/products/PrerenderProductCategory';
+import PrerenderAllProducts from '@/components/products/PrerenderAllProducts';
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,22 +22,28 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Theme>
-          <Header />
-          <Container
-            sx={{
-              backgroundColor: 'primary.main',
-              minHeight: '100vh',
-              display: { mobile: 'flex' },
-              paddingTop: 1
-            }}
-            maxWidth={false}
-          >
-            <CssBaseline />
+          <StoreProvider>
 
-            <Sidebar />
-            {children}
+            <PrerenderProductCategory />
+            <PrerenderAllProducts />
 
-          </Container>
+            <Header />
+            <Container
+              sx={{
+                backgroundColor: 'primary.main',
+                minHeight: '100vh',
+                display: { mobile: 'flex' },
+                paddingTop: 1
+              }}
+              maxWidth={false}
+            >
+              <CssBaseline />
+
+              <Sidebar />
+              {children}
+
+            </Container>
+          </StoreProvider>
         </Theme>
       </body>
     </html>

@@ -20,6 +20,7 @@ const Header = () => {
     let content
 
     if (smallScreenSize) {
+        // mobile screen
         content = (
             <>
                 <Menu />
@@ -32,10 +33,11 @@ const Header = () => {
             </>
         )
     } else {
+        //desktop screen
         content = (
             <>
                 <Stack direction='row' alignItems='center' gap={3}>
-                    <Logo isIconOnly={mediumScreenSize} />
+                    <Logo showIconOnly={mediumScreenSize} />
                     <Navigations />
                 </Stack>
 

@@ -14,7 +14,7 @@ model Product {
   title    String
   price    Decimal @db.Decimal(10, 2)
   image    String
-  category String?
+  category String
 }
 
 model User {

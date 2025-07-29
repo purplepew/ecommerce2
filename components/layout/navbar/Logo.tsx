@@ -4,40 +4,42 @@ import { Typography, Link, Box } from '@mui/material'
 import NextLink from "next/link"
 
 
-type Props = { isIconOnly?: boolean }
+type Props = { showIconOnly?: boolean }
 
-const Logo = ({ isIconOnly = false }: Props) => {
+const Logo = ({ showIconOnly = false }: Props) => {
 
     const LogoIcon = () => (
-        <Box
+        <Link
             sx={{
                 backgroundColor: '#000',
                 border: '.5px solid #8f8f8f',
                 borderRadius: 2,
-                p: '.2rem .4rem'
+                p: '.2rem .4rem',
             }}
+            href="/"
+            prefetch={true}
+            component={NextLink}
         >
             <Details color='secondary' fontSize={'small'} />
-        </Box>
+        </Link>
     )
 
-    if (isIconOnly) {
-       return <LogoIcon />
+    if (showIconOnly) {
+        return (
+            <LogoIcon />
+        )
     } else {
         return (
-            <Link
-                href="/"
-                prefetch={true}
-                component={NextLink}
-                sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: .5
-                }}
+            <Box 
+            sx={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 1
+            }}
             >
                 <LogoIcon />
                 <Typography variant='body2' color='secondary'>XD STORE</Typography>
-            </Link>
+            </Box>
         )
     }
 }

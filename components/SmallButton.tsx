@@ -1,20 +1,21 @@
 import { Box, ButtonBase, SxProps } from '@mui/material'
-import { ReactNode } from 'react'
+import { JSX, MouseEvent, ReactNode } from 'react'
 
 type Props = {
-    children: ReactNode,
-    onClick: () => void,
-    overrideSx?: SxProps
+    onClick: (e: MouseEvent<HTMLButtonElement>) => void,
+    overrideSx?: SxProps,
+    title: string,
+    icon: JSX.Element
 }
 
-const SmallButton = ({ children, onClick, overrideSx }: Props) => {
+const SmallButton = ({ onClick, overrideSx, title, icon }: Props) => {
+
     return (
         <Box
             sx={{
                 border: '1px solid #9f9f9f',
                 borderRadius: 1,
                 p: 1,
-                mr: 'auto',
                 display: 'flex',
                 alignContent: 'center',
                 backgroundColor: 'primary',
@@ -23,8 +24,9 @@ const SmallButton = ({ children, onClick, overrideSx }: Props) => {
             }}
             component={ButtonBase}
             onClick={onClick}
+            title={title}
         >
-            {children}
+            {icon}
         </Box >
     )
 }

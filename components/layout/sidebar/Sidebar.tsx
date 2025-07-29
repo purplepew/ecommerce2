@@ -1,22 +1,23 @@
 'use client'
 import { ExpandMore } from '@mui/icons-material'
-import { Box, Button, ButtonBase, ClickAwayListener, Collapse, Link, List, ListItem, ListItemText, Menu, Stack, Typography, useMediaQuery, useTheme } from '@mui/material'
+import { Box, Button, ClickAwayListener, Collapse, List, ListItem, Typography, useMediaQuery, useTheme } from '@mui/material'
 import NextLink from 'next/link'
-import { usePathname, useSearchParams } from 'next/navigation'
-import React, { MouseEvent, useCallback, useMemo, useRef, useState } from 'react'
-const collections = [
-    'All',
-    'Bags',
-    'Drinkware',
-    'Electronics',
-    'Footware',
-    'Headwear',
-    'Hoodies',
-    'Jackets',
-    'Kids',
-    'Pets',
-    'Shirts',
-    'Stickers'
+import { usePathname } from 'next/navigation'
+import React, { useMemo, useState } from 'react'
+
+export const collections = [
+    'all',
+    'bags',
+    'drinkware',
+    'electronics',
+    'footwear',
+    'headwear',
+    'hoodies',
+    'jackets',
+    'kids',
+    'pets',
+    'shirts',
+    'stickers'
 ]
 
 const Sidebar = () => {
@@ -34,29 +35,32 @@ const Sidebar = () => {
 
     const toggleDropdown = (close?: boolean) => setOpen(close ? false : !open) // when an argument is provided that is true, the dropdown closes
 
-    const renderLinks = useMemo(() => collections.map((name, index) => (
-        <ListItem key={name}>
-            <NextLink
-                href={`/search/${name.toLowerCase()}`}
-                style={{ textDecoration: 'none' }}
-                onClick={() => {
-                    setSelectedIndex(index)
-                    toggleDropdown(true)
-                }}
-                prefetch={true}
-            >
-                <Typography
-                    color='secondary'
-                    variant='body2'
-                    sx={{
-                        '&:hover': {
-                            textDecoration: 'underline',
-                        }
+    const renderLinks = useMemo(() => collections.map((name, index) => {
+        const target = name !== 'all' ? `/search/${name}` : '/search'
+        return (
+            <ListItem key={name} dense>
+                <NextLink
+                    href={target}
+                    style={{ textDecoration: 'none' }}
+                    onClick={() => {
+                        setSelectedIndex(index)
+                        toggleDropdown(true)
                     }}
-                >{name}</Typography>
-            </NextLink>
-        </ListItem>
-    )), [])
+                    prefetch={true}
+                >
+                    <Typography
+                        variant='caption'
+                        color='textPrimary'
+                        sx={{
+                            '&:hover': {
+                                textDecoration: 'underline',
+                            }
+                        }}
+                    >{name[0].toUpperCase() + name.substring(1)}</Typography>
+                </NextLink>
+            </ListItem>
+        )
+    }), [])
 
     let content
 
